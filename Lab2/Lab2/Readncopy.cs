@@ -9,36 +9,45 @@ namespace readncopy
 {
     public class Readncopy
     {
-        public string ReadFile (string filePath)
+        public static string Readfile(string filePath)
         {
             try
             {
-                return File.ReadAllText(filePath);
+                if (File.Exists(filePath))
+                {
+                    return File.ReadAllText(filePath);
+                }
+                else
+                {
+                    Console.WriteLine("File not found. Creating new file.");
+                    File.WriteAllText(filePath, "Hello and Welcome\r\nIt is the first content \r\nof the text file from first file\r\n");
+                    return null;
+                }
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                Console.WriteLine($"An error occurred while reading the file '{filePath}': {ex.Message}");
+                Console.WriteLine("Error reading file: " + ex.Message);
                 return null;
             }
         }
-
-        public void CopyFile(string sourceFilePath, string destinationFilePath)
+        public static void CopyFile( string content, string newDestination)
         {
             try
             {
-                string content = ReadFile(sourceFilePath);
-
                 if (content != null)
                 {
-                    File.WriteAllText(destinationFilePath, content);
-                    Console.WriteLine($"File '{sourceFilePath}' copied to '{destinationFilePath}' successfully.");
+                    File.WriteAllText(newDestination, content);
+                    Console.WriteLine("File Copied");
+                }
+                else
+                {
+                    Console.WriteLine("Content is null. Cannot copy.");
                 }
             }
-            catch (Exception ex)
+            catch(Exception e) 
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Console.WriteLine("Error copying file:" + e.Message);
             }
-
         }
     }
 }

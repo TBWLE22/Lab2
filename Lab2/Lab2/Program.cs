@@ -1,10 +1,16 @@
-﻿using System;
+﻿//using CalculatorInterface;
+using System;
+using System.Net.Sockets;
 //using factorial;
 //using Quadratic;
 //using student;
 //using time;
-using System.IO;
-using readncopy;
+//using readncopy;
+//using Dispg;
+//using ShapesInterface;
+//using vehicle;
+//using Employeeinfo;
+using SumOfOdd;
 namespace Lab2
 {
     /* internal class Program
@@ -70,28 +76,114 @@ namespace Lab2
             Console.WriteLine($"Total Sum t3 --> {t3}");
         }
     } */
-    class fileoperation
+  /*  class fileoperation
     {
         static void Main(String[] args)
         {
-            string sourceFilePath = @"D:\Shreyan Bista\6th Sem\NCC\Lab2\Lab2\bin\Debug\net6.0\input.txt";
-            string destinationFilePath = @"D:\Shreyan Bista\6th Sem\NCC\Lab2\Lab2\bin\Debug\net6.0\output.txt";
-            Readncopy readncopy = new Readncopy();
-            readncopy.CopyFile(sourceFilePath, destinationFilePath);
-            string inputContent = readncopy.ReadFile(sourceFilePath);
-            if (inputContent != null)
-            {
-                Console.WriteLine($"{sourceFilePath}");
-                Console.WriteLine(inputContent);
-            }
+            string inputFilePath = @"D:\Shreyan Bista\6th Sem\NCC\Lab2\Lab2\bin\Debug\net6.0\input.txt";
+            string outputFilePath = @"D:\Shreyan Bista\6th Sem\NCC\Lab2\Lab2\bin\Debug\net6.0\output.txt";
 
-            string outputContent = readncopy.ReadFile(destinationFilePath);
-            if (outputContent != null)
+            string content = Readncopy.Readfile(inputFilePath);
+            if (content != null)
             {
-                Console.WriteLine($"{destinationFilePath}");
-                Console.WriteLine(outputContent);
+                Readncopy.CopyFile(content,outputFilePath);
+            } 
+            else
+            {
+                Console.WriteLine("File reading failed. Can't copy.");
             }
         }
 
+    } */
+  /*  class Program
+    {
+        static void Main(string[] args)
+        {
+            string filePath = "Input.txt";
+            Displayg.Displaytheg(filePath);
+        }
+    } */
+ /* class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator calc = new Calculator();
+
+            int resultAdd = calc.Add(6, 10);
+            int resultDiff = calc.Diff(22, 18);
+
+            Console.WriteLine("Sum : " + resultAdd);
+            Console.WriteLine("Difference: " +resultDiff);
+        }
+    } */
+ /*   class Program
+    {
+        static void Main(string[] args)
+        {
+            Rectangle rectangle = new Rectangle(6, 8);
+            Square square = new Square(12);
+
+            rectangle.Get();
+            rectangle.Display();
+            Console.WriteLine();
+            square.Get();
+            square.Display();
+        }
+    } */
+/*    class Program
+    {
+        static void Main(string[] args)
+        {
+            Airplane airplane = new Airplane ("Zeppelin LZ 1", "Luftschiffbau Zeppelin", 5);
+
+            Console.WriteLine("Airplane Details:");
+            airplane.DisplayDetails();
+            Console.WriteLine();
+            Console.WriteLine("Status");
+            airplane.StartEngine();
+            airplane.Takeoff();
+            airplane.Land();
+            airplane.StopEngine();
+        }
+    } */
+ /*   public class Imain
+    {
+        static void Main(String[] args)
+        {
+            List<Employee> employees = new List<Employee>
+            {
+                new Employee {Id = 1,Name = "Ramesh", Address = "Thimi", Salary = 50000 },
+                new Employee {Id = 1,Name = "Suresh", Address = "Chyamashingh", Salary = 60000 },
+                new Employee {Id = 1,Name = "Kaman", Address = "Kamalbinayak", Salary = 35000 },
+                new Employee {Id = 1,Name = "Logan", Address = "Metropolis", Salary = 45000 },
+                new Employee {Id = 1,Name = "Slade", Address = "Gotham", Salary = 55000 }
+            };
+            var highpaid = from emp in employees where emp.Salary > 40000 select emp;
+
+            Console.WriteLine("Employees with Salary > 40000:");
+            foreach(var emp in highpaid)
+            {
+                Console.WriteLine($"ID: {emp.Id}\t Name: {emp.Name}\t  Address: {emp.Address}\t  Salary: {emp.Salary}");
+            }
+        }
+    } */
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            Console.WriteLine("Enter the size of the array:");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int[] numbers = new int[n];
+
+            Console.WriteLine("Enter the elements of the array:");
+            for (int i = 0; i < n; i ++ )
+            {
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int sumOfodd = SumOfOdd.Array.OddSum(numbers);
+            Console.WriteLine($"Sum of odd numbers in the array: {sumOfodd}");
+        }
     }
 }
